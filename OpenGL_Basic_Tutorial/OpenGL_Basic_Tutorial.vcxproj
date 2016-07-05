@@ -22,6 +22,7 @@
     <ProjectGuid>{4A2C1ED5-B7DD-4C54-8CE2-4CA6FA8445D8}</ProjectGuid>
     <RootNamespace>OpenGL_Basic_Tutorial</RootNamespace>
     <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+    <ProjectName>OpenGL_Basic_Tutorial-0</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
