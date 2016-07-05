@@ -24,6 +24,8 @@ int main()
 	// Create GLFW windows for requirement version
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
+	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+	glfwWindowHint(GLFW_RESIZABLE, GL_FALSE);
 	GLFWwindow* window = glfwCreateWindow(640, 480, "OpenGL Tutorial", NULL, NULL);
 	if (window == nullptr) // window creation failed
 	{
