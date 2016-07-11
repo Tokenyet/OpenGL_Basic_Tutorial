@@ -1,10 +1,13 @@
 // include c/c++ library
 #include <iostream>
+#include <vector>
 // GLEW ( help you using functions without retreiving functions )
 #define GLEW_STATIC
 #include <GL\glew.h>
 // GLFW ( make you a windows that support opengl operation to work fine with your platform )
 #include <GLFW\glfw3.h>
+// Custom
+#include "Shader.h"
 
 // Get error from GLFW for debuging
 void error_callback(int error, const char* description);
@@ -52,13 +55,22 @@ int main()
 	glfwGetFramebufferSize(window, &width, &height);
 	glViewport(0, 0, width, height);
 
+	// Preparation
+	Shader shader("shader/basic.vert", "shader/basic.frag");
+	GLuint vertexArrayObject;
+	glCreateVertexArrays(1, &vertexArrayObject);
+
 	// Looping Here until user trigger closing window event.
 	while (!glfwWindowShouldClose(window))
 	{
 		// Clear the colorbuffer
 		glClearColor(0.5f, 0.5f, 0.3f, 1.0f);
 		glClear(GL_COLOR_BUFFER_BIT);
-
+		shader.UseProgram();
+		glBindVertexArray(vertexArrayObject);
+		glDrawArrays(GL_TRIANGLES, 0, 3);
+		glBindVertexArray(0);
+		//glPointSize(40.0f);
 		glfwSwapBuffers(window); // show on windows
 		glfwPollEvents(); // check any event(ex. mousedown, keyup...)
 	}
